@@ -5,7 +5,7 @@ import time
 
 t1 = time.time()
 
-train_user_movie = scipy.sparse.load_npz('../processed/train_user_movie.npz')
+train_user_movie = scipy.sparse.load_npz('../processed/train_user_movie.npz').tocsr()
 test_user_movie = scipy.sparse.load_npz('../processed/test_user_movie.npz')
 
 print("Import train test splits")

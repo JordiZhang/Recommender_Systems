@@ -85,7 +85,7 @@ def train_test_split(R, split_ratio = 0.2):
         test_movie.extend(movies[test_index])
         test_rating.extend(ratings[test_index])
 
-    R_train = csr_array((train_rating, (train_user, train_movie)), shape=R.shape)
+    R_train = coo_array((train_rating, (train_user, train_movie)), shape=R.shape)
     R_test = coo_array((test_rating, (test_user, test_movie)), shape=R.shape)
 
     return R_train, R_test
