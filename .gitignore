@@ -2,5 +2,4 @@
 /.venv/
 /.idea/
 /user-user/correlation.npz
-/user-user/index_to_movie.pkl
-/user-user/index_to_user.pkl
+
