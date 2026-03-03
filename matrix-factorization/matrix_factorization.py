@@ -97,5 +97,6 @@ np.save('MF_b', b)
 np.save('MF_c', c)
 np.save('MF_mu', mu)
 
-plt.savefig('loss_over_epochs.png')
+plt.title('ALS Mean Squared Error')
+plt.savefig('ALS_MSE.png')
 plt.show()
