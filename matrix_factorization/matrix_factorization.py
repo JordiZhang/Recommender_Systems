@@ -3,10 +3,10 @@ import numpy as np
 import scipy
 import matplotlib.pyplot as plt
 
-train = scipy.sparse.load_npz('../processed/train_user_movie.npz')
+train = scipy.sparse.load_npz('../processed_20k_4k/train_user_movie.npz')
 train_csr = train.tocsr()
 train_csc = train.tocsc()
-test = scipy.sparse.load_npz('../processed/test_user_movie.npz')
+test = scipy.sparse.load_npz('../processed_20k_4k/test_user_movie.npz')
 
 K = 25
 l2_lambda = 0.01
@@ -91,7 +91,7 @@ plt.legend()
 print('Final Training Loss:', train_loss[-1])
 print('Final Testing Loss:', test_loss[-1])
 
-np.save('MF_W.npz', W)
+np.save('MF_W', W)
 np.save('MF_U', U)
 np.save('MF_b', b)
 np.save('MF_c', c)

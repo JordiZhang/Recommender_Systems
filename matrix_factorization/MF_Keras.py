@@ -1,14 +1,13 @@
 from keras.models import Model
-from keras.layers import Input, Embedding, Dot, Add, Flatten, Lambda
+from keras.layers import Input, Embedding, Dot, Add, Flatten
 from keras.regularizers import l2
 from keras.optimizers import Adam, SGD
-import keras.backend as kb
 import scipy
 import numpy as np
 import matplotlib.pyplot as plt
 
-train = scipy.sparse.load_npz('../processed/train_user_movie.npz')
-test = scipy.sparse.load_npz('../processed/test_user_movie.npz')
+train = scipy.sparse.load_npz('../processed_20k_4k/train_user_movie.npz')
+test = scipy.sparse.load_npz('../processed_20k_4k/test_user_movie.npz')
 
 N, M = train.shape
 K = 25
@@ -60,7 +59,7 @@ plt.show()
 
 plt.plot(r.history['mse'], label = 'Training MSE')
 plt.plot(r.history['val_mse'], label = 'Testing MSE')
-plt.title('Keras Mean Squared Error')
+plt.title('MF Keras Mean Squared Error')
 plt.legend()
 plt.savefig('Keras_MSE.png')
 plt.show()
