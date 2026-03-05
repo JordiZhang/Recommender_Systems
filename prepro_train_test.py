@@ -28,9 +28,9 @@ print(time.time()-t1)
 # dictionaries to quickly find the index for the user_movie matrix or vice versa
 index_to_user = movielens["userId"].drop_duplicates().sort_values(ascending=True).reset_index().drop("index", axis=1).to_dict()["userId"]
 index_to_movie = movielens["movieId"].drop_duplicates().sort_values(ascending=True).reset_index().drop("index", axis=1).to_dict()["movieId"]
-with open('processed_20k_4k/index_to_movie.pkl', 'wb') as f:
+with open('processed/index_to_movie.pkl', 'wb') as f:
     pickle.dump(index_to_movie, f)
-with open('processed_20k_4k/index_to_user.pkl', 'wb') as f:
+with open('processed/index_to_user.pkl', 'wb') as f:
     pickle.dump(index_to_user, f)
 
 
@@ -93,8 +93,8 @@ def train_test_split(R, split_ratio = 0.2):
 train_user_movie, test_user_movie = train_test_split(user_movie)
 
 # save train test split
-scipy.sparse.save_npz('processed_20k_4k/train_user_movie.npz', train_user_movie)
-scipy.sparse.save_npz('processed_20k_4k/test_user_movie.npz', test_user_movie)
+scipy.sparse.save_npz('processed/train_user_movie.npz', train_user_movie)
+scipy.sparse.save_npz('processed/test_user_movie.npz', test_user_movie)
 
 print("Train Test Split Done.")
 print(time.time()-t1)
